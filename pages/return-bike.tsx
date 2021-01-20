@@ -67,9 +67,9 @@ export default function ReturnBike() {
     }
 
     return (
-      <Grid container justify="center" alignItems="center">
+      <Box height="100%" justifyContent="center" alignItems="center">
         <CircularProgress />
-      </Grid>
+      </Box>
     );
   }, [data, error]);
 
