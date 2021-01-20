@@ -16,6 +16,7 @@ const Map = dynamic(() => import('../components/map'), { ssr: false });
 
 type QueryResult = {
   bikeParks: {
+    id: string;
     name: string;
     spacesAvailable: number;
     lon: number;
@@ -26,6 +27,7 @@ type QueryResult = {
 const BikeParkingQuery = `
   {
     bikeParks {
+      id,
       name,
       spacesAvailable,
       lon,
@@ -49,6 +51,7 @@ export default function FindParking() {
           markers={data.bikeParks
             .filter((bp) => bp.spacesAvailable > 0)
             .map((bp) => ({
+              key: bp.id,
               position: [bp.lat, bp.lon],
               popupText: `${
                 bp.name

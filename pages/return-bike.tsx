@@ -15,6 +15,7 @@ const Map = dynamic(() => import('../components/map'), { ssr: false });
 
 type QueryResult = {
   bikeRentalStations: {
+    id: string;
     name: string;
     bikesAvailable: number;
     spacesAvailable: number;
@@ -28,6 +29,7 @@ type QueryResult = {
 const ReturnBikeQuery = `
   {
     bikeRentalStations {
+      id
       name
       spacesAvailable
       state
@@ -54,10 +56,11 @@ export default function ReturnBike() {
               (brs) => brs.state === 'Station on' && brs.spacesAvailable > 0
             )
             .map((brs) => ({
+              key: brs.id,
               position: [brs.lat, brs.lon],
               popupText: `${
                 brs.name
-              }. Pyöriä vapaana: ${brs.spacesAvailable.toString()}`,
+              }. Palautuspaikkoja vapaana: ${brs.spacesAvailable.toString()}`,
             }))}
         />
       );

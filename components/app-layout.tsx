@@ -56,30 +56,32 @@ export default function AppLayout({ children }) {
     <div className={classes.root}>
       <main className={classes.main}>
         <Container fixed className={classes.container}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Typography variant="h5">Pyöräplänneri</Typography>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <AutocompleteLocation />
-            </Grid>
-            <Grid item xs={12} md={8}>
-              <Grid container alignItems="center" justify="flex-end">
-                <Tabs value={activeTab}>
-                  <Link href="/find-parking" scroll={false}>
-                    <Tab component="a" label="Löydä parkkipaikka" />
-                  </Link>
-                  <Link href="/rent-bike" scroll={false}>
-                    <Tab component="a" label="Löydä vuokrapyöräa" />
-                  </Link>
-                  <Link href="/return-bike" scroll={false}>
-                    <Tab component="a" label="Palauta vuokrapyörä" />
-                  </Link>
-                </Tabs>
+          <Box marginBottom={theme.spacing(5)}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Typography variant="h5">Pyöräplänneri</Typography>
               </Grid>
+              <Grid item xs={12} md={4}>
+                <AutocompleteLocation />
+              </Grid>
+              <Grid item xs={12} md={8}>
+                <Grid container alignItems="center" justify="flex-end">
+                  <Tabs value={activeTab}>
+                    <Link href="/find-parking" scroll={false}>
+                      <Tab component="a" label="Löydä parkkipaikka" />
+                    </Link>
+                    <Link href="/rent-bike" scroll={false}>
+                      <Tab component="a" label="Löydä vuokrapyöräa" />
+                    </Link>
+                    <Link href="/return-bike" scroll={false}>
+                      <Tab component="a" label="Palauta vuokrapyörä" />
+                    </Link>
+                  </Tabs>
+                </Grid>
+              </Grid>
+              {children}
             </Grid>
-            {children}
-          </Grid>
+          </Box>
         </Container>
       </main>
     </div>

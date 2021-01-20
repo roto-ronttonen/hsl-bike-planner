@@ -15,6 +15,7 @@ const Map = dynamic(() => import('../components/map'), { ssr: false });
 
 type QueryResult = {
   bikeRentalStations: {
+    id: string;
     name: string;
     bikesAvailable: number;
     spacesAvailable: number;
@@ -28,6 +29,7 @@ type QueryResult = {
 const RentBikeQuery = `
   {
     bikeRentalStations {
+      id
       name
       bikesAvailable
       state
@@ -55,6 +57,7 @@ export default function RentBike() {
               (brs) => brs.state === 'Station on' && brs.bikesAvailable > 0
             )
             .map((brs) => ({
+              key: brs.id,
               position: [brs.lat, brs.lon],
               popupText: `${
                 brs.name

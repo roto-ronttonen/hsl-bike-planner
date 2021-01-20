@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppState, SetMapMovedTo } from '../app-state';
 
 export type MarkerType = {
+  key: string;
   position: LatLngTuple;
   popupText: string;
 };
@@ -44,7 +45,7 @@ export default function Map({ height, markers }: MapProps) {
 
   useEffect(() => {
     if (location?.coords && map) {
-      map.setView(location.coords, 16);
+      map.setView(location.coords, 13);
     }
   }, [location]);
 
@@ -77,7 +78,7 @@ export default function Map({ height, markers }: MapProps) {
         url="https://cdn.digitransit.fi/map/v1/{id}/{z}/{x}/{y}.png"
       />
       {markers?.map((m) => (
-        <Marker position={m.position}>
+        <Marker key={m.key} position={m.position}>
           <Popup>{m.popupText}</Popup>
         </Marker>
       ))}
