@@ -68,7 +68,13 @@ export default function RentBike() {
     }
 
     return (
-      <Box height="100%" justifyContent="center" alignItems="center">
+      <Box
+        height="100%"
+        width="100%"
+        justifyContent="center"
+        alignItems="center"
+        display="flex"
+      >
         <CircularProgress />
       </Box>
     );
@@ -81,7 +87,7 @@ export default function RentBike() {
       </Head>
       <Grid item xs={12}>
         <Paper>
-          <Box minHeight="50vh">{content}</Box>
+          <Box height="50vh">{content}</Box>
         </Paper>
       </Grid>
     </AppLayout>
