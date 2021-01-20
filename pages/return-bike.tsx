@@ -80,7 +80,7 @@ export default function ReturnBike() {
       </Head>
       <Grid item xs={12}>
         <Paper>
-          <Box>{content}</Box>
+          <Box minHeight="50vh">{content}</Box>
         </Paper>
       </Grid>
     </AppLayout>
