@@ -71,7 +71,7 @@ export default function AppLayout({ children }) {
                       <Tab component="a" label="Löydä parkkipaikka" />
                     </Link>
                     <Link href="/rent-bike" scroll={false}>
-                      <Tab component="a" label="Löydä vuokrapyöräa" />
+                      <Tab component="a" label="Löydä vuokrapyörä" />
                     </Link>
                     <Link href="/return-bike" scroll={false}>
                       <Tab component="a" label="Palauta vuokrapyörä" />
